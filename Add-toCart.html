@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+        body {
+            background-color: #f5f9fd;
+            font-family: "Roboto", sans-serif;
+        }
+        
+        .container {
+            max-width: 500px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .cart-item {
+            background-color: #03254c;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        
+        .btn-custom {
+            background-color: #03254c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }</style>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Add to Cart</h2>
+        <div class="row">
+            <div class="col-12">
+                <input type="text" id="cartItemTextInput" class="form-control" placeholder="Enter item name">
+                <button id="addBtn" class="btn btn-custom mt-2 w-100">Add to Cart</button>
+                <ul id="cartList" class="cart-list mt-3"></ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>document.getElementById("addBtn").addEventListener("click", function() {
+        let inputField = document.getElementById("cartItemTextInput");
+        let inputValue = inputField.value.trim();
+    
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            listItem.classList.add("cart-item");
+    
+            document.getElementById("cartList").appendChild(listItem);
+            inputField.value = ""; // Clear input field after adding
+        }
+    });</script>
+</body>
+
+
+</html>
